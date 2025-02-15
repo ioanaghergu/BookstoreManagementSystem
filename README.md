@@ -4,6 +4,7 @@
 
 The **Bookstore Management System** is a backend application designed to manage a bookstore's operations, including managing of customers, employees, books, orders, and reviews. It provides RESTful APIs to perform CRUD operations and functionalities like filtering books, managing orders, and handling reviews. Built using **Java** and **Spring Boot**, this system ensures data validation, error handling, and seamless integration with a relational database.
 
+---
 
 ## Business Requirements
 
@@ -18,6 +19,7 @@ The **Bookstore Management System** is a backend application designed to manage 
 9. Customers can search and filter books by a variety of criteria.(e.g. title, author, rating)
 10. Customers can access their order history and see their previous orders, including total prices and ordering dates.
 
+---
 
 ## Implemented Features
 
@@ -73,7 +75,11 @@ The **Bookstore Management System** is a backend application designed to manage 
 
 ## Database Diagram and Relationships
 
+The application stores data in a **MySql** database.
+
 ### Database Diagram
+
+![database](https://github.com/user-attachments/assets/4763afda-ceb9-4c31-8ed9-8f76e758c64f)
 
 
 ### Entities and Relationships
@@ -95,8 +101,32 @@ The **Bookstore Management System** is a backend application designed to manage 
 
 5. **OrderItem**: multiple books(items in an order) can be found in a single order
    - Many-to-One relationship with **Order**.
+   - Many-to-One relationship with **Book**.
 
 6. **Review**: multiple reviews can belong to one customer, multiple reviews can be left on one book
    - Many-to-One relationship with **Customer**.
    - Many-to-One relationship with **Book**.
+
+---
+
+### Validations
+The implemented classes have been validated using existing validation constraints, but also custom validations such as `@ValidEmail` or `@ValidPhoneNumber`.
+
+![image](https://github.com/user-attachments/assets/78ee2566-37c2-4ebe-a283-e6c151c73f9f)
+
+---
+
+### Unit tests
+Unit tests have been implemented for each controller and service.
+
+![image](https://github.com/user-attachments/assets/d8f91973-4cdf-4fca-9440-0167e8683565)
+![image](https://github.com/user-attachments/assets/d4b7489e-4e60-4748-baaf-ed28157ceb2f)
+
+---
+### Swagger Documenentation
+Each endpoint has been documented using Sqagger. The documentation can be found at: http://localhost:8080/swagger-ui/index.html#/
+
+![image](https://github.com/user-attachments/assets/e0919d2b-bd69-4733-b6e3-1149512f2597)
+![image](https://github.com/user-attachments/assets/0252222c-3224-49ea-8b0c-fd0cda3d1220)
+
 
