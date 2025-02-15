@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 import org.example.bookstoremanagementsystem.validator.ValidEmail;
 import org.example.bookstoremanagementsystem.validator.ValidPhoneNumber;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -26,7 +25,7 @@ public class Customer {
 
     @Column(name = "name", nullable = false)
     @NotNull(message = "Customer name is required")
-    @Pattern(regexp = "^[A-Z][a-z]*$", message = "The first letter of the customer's name should be capital")
+    @Pattern(regexp = "^[A-Z][a-z]*([\\s][A-Z][a-z]*)*$", message = "The first letter of the customer's name should be capital")
     private String name;
 
     @Column(name = "email", nullable = false, unique = true)
@@ -39,12 +38,13 @@ public class Customer {
     @ValidPhoneNumber
     private String phone;
 
-    @Column(name = "adress")
+    @Column(name = "address")
     private String address;
 
-    @OneToMany(mappedBy = "customer")
-    private List<Order> orders = new ArrayList<Order>();
+    @OneToMany(mappedBy = "customerId", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Order> orders;
 
-    @OneToMany(mappedBy = "customer")
-    private List<Review> reviews = new ArrayList<>();
+    @OneToMany(mappedBy = "customerId", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Review> reviews;
+
 }

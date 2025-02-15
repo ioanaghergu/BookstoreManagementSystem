@@ -4,13 +4,11 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -27,7 +25,7 @@ public class Employee {
 
     @Column(name = "name", nullable = false)
     @NotNull(message = "Employee name is required")
-    @Pattern(regexp = "^[A-Z][a-z]*$", message = "The first letter of the name should be capital")
+    @Pattern(regexp = "^[A-Z][a-z]*([\\s][A-Z][a-z]*)*$", message = "The first letter of the name should be capital")
     private String name;
 
     @Column(name = "salary", nullable = false)
@@ -35,6 +33,7 @@ public class Employee {
     @Min(value = 2500, message = "The salary must have a value of at least 2500 lei")
     private Float salary;
 
-    @OneToMany(mappedBy = "employee")
-    private List<Order> orders = new ArrayList<>();
+    @OneToMany(mappedBy = "employeeId", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Order> orders;
+
 }

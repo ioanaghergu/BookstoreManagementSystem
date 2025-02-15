@@ -6,13 +6,14 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
-import java.util.ArrayList;
+
 import java.util.List;
+
 
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name="books")
 public class Book {
@@ -27,7 +28,7 @@ public class Book {
 
     @Column(name = "author", nullable = false)
     @NotNull(message = "Book author is required")
-    @Pattern(regexp = "^[A-Z][a-z]*$", message = "The first letter of the author's name should be capital")
+    @Pattern(regexp = "^[A-Z][a-z]*([\\s][A-Z][a-z]*)*$", message = "The first letter of the author's name should be capital")
     private String author;
 
     @Column(name = "genre", nullable = false)
@@ -38,12 +39,16 @@ public class Book {
     @NotNull(message = "Book description is required")
     private String description;
 
-    @Column(name = "avgRating")
+    @Column(name = "price", nullable = false)
+    @NotNull(message = "Book price is required")
+    private Float price;
+
+    @Column(name = "avg_rating")
     private Float avgRating;
 
     @Column(name = "stock")
     private Integer stock;
 
-    @OneToMany(mappedBy = "book")
-    private List<Review> reviews = new ArrayList<>();
+    @OneToMany(mappedBy = "bookId", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Review> reviews;
 }
