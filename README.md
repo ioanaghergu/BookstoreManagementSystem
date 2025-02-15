@@ -2,14 +2,14 @@
 
 ## Overview
 
-The **Bookstore Management System** is a backend application designed to manage a bookstore's operations, including managing of customers, employees, books, orders, and reviews. It provides RESTful APIs to perform CRUD operations and functionalities like filtering books, managing orders, and handling reviews. Built using **Java** and **Spring Boot**, this system ensures data validation, error handling, and seamless integration with a relational database.
+The **Bookstore Management System** is a backend application designed to manage a bookstore's operations, including managing of customers, employees, books, orders, and reviews. It provides RESTful APIs to perform CRUD operations, and functionalities like filtering books, managing orders, and handling reviews. Built using **Java** and **Spring Boot**, this system ensures data validation, error handling, and seamless integration with a relational database.
 
 ---
 
 ## Business Requirements
 
-1. Customers' information can be created, updated, or removed from the system.
-2. Employees' information can be created, updated, or removed from the system.
+1. Customers' information can be added, updated, or removed from the system.
+2. Employees' information can be added, updated, or removed from the system.
 3. Books can be added, updated, or deleted from the bookstore's catalog.
 4. Customers can place orders for one or more books, choose a pay and shipping method, apply coupons and discounts available to their order, and the total price for the order will be computed automatically.
 5. Orders can be placed, updated or canceled and their status will be updated automatically.
@@ -21,7 +21,9 @@ The **Bookstore Management System** is a backend application designed to manage 
 
 ---
 
-## Implemented Features
+## Implemented Functionalities
+
+The MVP focuses on managing books, customers, employees, orders and reviews. Here is a list of the implemented functionalities:
 
 ### 1. **Customers Management**
 - ✅ Add, update, and remove customers from the system.
