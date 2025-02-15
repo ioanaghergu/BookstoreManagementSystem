@@ -18,6 +18,8 @@ public class BookMapper {
                 .id(book.getId())
                 .title(book.getTitle())
                 .author(book.getAuthor())
+                .genre(book.getGenre())
+                .description(book.getDescription())
                 .price(book.getPrice())
                 .stock(book.getStock())
                 .avgRating(book.getAvgRating())
