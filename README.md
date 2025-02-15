@@ -112,7 +112,7 @@ The application stores data in a **MySql** database.
 ---
 
 ### Validations
-The implemented classes have been validated using existing validation constraints, but also custom validations such as `@ValidEmail` or `@ValidPhoneNumber`.
+The implemented classes have been validated using existing validation constraints, but also custom validations such as `@ValidEmail` and `@ValidPhoneNumber`.
 
 ![image](https://github.com/user-attachments/assets/78ee2566-37c2-4ebe-a283-e6c151c73f9f)
 
