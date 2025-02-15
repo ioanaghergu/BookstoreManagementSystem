@@ -124,7 +124,7 @@ Unit tests have been implemented for each controller and service.
 
 ---
 ### Swagger Documenentation
-Each endpoint has been documented using Sqagger. The documentation can be found at: http://localhost:8080/swagger-ui/index.html#/
+Each endpoint has been documented using Swagger. The documentation can be found at: http://localhost:8080/swagger-ui/index.html#/
 
 ![image](https://github.com/user-attachments/assets/e0919d2b-bd69-4733-b6e3-1149512f2597)
 ![image](https://github.com/user-attachments/assets/0252222c-3224-49ea-8b0c-fd0cda3d1220)
