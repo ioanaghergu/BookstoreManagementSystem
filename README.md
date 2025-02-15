@@ -1,4 +1,9 @@
-# BookstoreManagementSystem
+# 📚 Bookstore Management System
+
+## Overview
+
+The **Bookstore Management System** is a backend application designed to manage a bookstore's operations, including managing of customers, employees, books, orders, and reviews. It provides RESTful APIs to perform CRUD operations and functionalities like filtering books, managing orders, and handling reviews. Built using **Java** and **Spring Boot**, this system ensures data validation, error handling, and seamless integration with a relational database.
+
 
 ## Business Requirements
 
@@ -13,29 +18,85 @@
 9. Customers can search and filter books by a variety of criteria.(e.g. title, author, rating)
 10. Customers can access their order history and see their previous orders, including total prices and ordering dates.
 
-## MVP Features
-The MVP is focused on essential functionalities such as:
 
-1. Customers management 
-    -[] Add, update, remove customers from the system
-    -[] List all customers
-2. Books management
-    -[] Add, update, remove books from the bookstore's catalog
-    -[] List all books
-    -[] Search books by title, author or average rating
-    -[] Manage inventory levels
-3. Employees management
-    -[] Add, update, remove employees from the system
-    -[] List all employees
-    -[] Assign employees to orders for processing
-4. Orders management
-    -[] Create, update, cancel orders
-    -[] Compute total price per order and update status
-5. Reviews management
-    -[] Add and delete review for a book
-    -[] List reviews for a certain book
-   
-    
-    
+## Implemented Features
 
+### 1. **Customers Management**
+- ✅ Add, update, and remove customers from the system.
+- ✅ List all customers.
+- ✅ List all orders for a customer.
+
+### 2. **Books Management**
+- ✅ Add, update, and remove books from the catalog.
+- ✅ List all books.
+- ✅ Search books by title, author, or average rating.
+- ✅ Manage inventory levels for books.
+
+### 3. **Employees Management**
+- ✅ Add, update, and remove employees from the system.
+- ✅ List all employees.
+- ✅ Assign employees to orders for processing.
+- ✅ List all orders assigned to an employee for processing.
+
+### 4. **Orders Management**
+- ✅ Create, update, and cancel orders.
+- ✅ Compute total price per order and update status.
+
+### 5. **Reviews Management**
+- ✅ Add, update, and delete reviews for a book.
+- ✅ List reviews for a specific book.
+  
+---
+
+## REST Endpoints
+
+| Entity      | Endpoint                          | Methods          | Description                                      |
+|-------------|-----------------------------------|------------------|--------------------------------------------------|
+| **Books**   | `/books`                          | GET, POST        | Retrieve all books, add a new book.            |
+|             | `/books/{id}`                     | GET, PUT, DELETE | Retrieve, update, delete a book by ID.        |
+|             | `/books/title?title={title}`      | GET              | Retrieve books by title.                         |
+|             | `/books/author?author={author}`   | GET              | Retrieve books by author.                        |
+|             | `/books/rating?avgRating={rating}`| GET              | Retrieve books by average rating.                |
+| **Customers**| `/customers`                      | GET, POST        | Retrieve all customers, add a new customer.    |
+|             | `/customers/{id}`                 | GET, PUT, DELETE | Retrieve, update, delete a customer by ID.    |
+|             | `/customers/orders?Customer ID={id}` | GET          | Retrieve all orders for a customer.              |
+| **Employees**| `/employees`                      | GET, POST        | Retrieve all employees, add a new employee.    |
+|             | `/employees/{id}`                 | GET, PUT, DELETE | Retrieve, update, delete an employee by ID.   |
+|             | `/employees/orders?Employee ID={id}` | GET          | Retrieve all orders for an employee.             |
+| **Orders**  | `/orders`                         | GET, POST        | Retrieve all orders, add a new order.          |
+|             | `/orders/{id}`                    | GET, DELETE      | Retrieve, delete an order by ID.               |
+| **Reviews** | `/reviews`                        | GET, POST        | Retrieve all reviews, add a new review.        |
+|             | `/reviews/{id}`                   | GET, PUT, DELETE | Retrieve, update, delete a review by ID.      |
+|             | `/reviews/searchByBook?Book Title={title}` | GET      | Retrieve reviews for a specific book.            |
+
+---
+
+## Database Diagram and Relationships
+
+### Database Diagram
+
+
+### Entities and Relationships
+1. **Customer**: a customer can place multiple orders, can add multiple reviews
+   - One-to-Many relationship with **Order**.
+   - One-to-Many relationship with **Review**.
+
+2. **Employee**: an employee can process multiple orders
+   - One-to-Many relationship with **Order**.
+
+3. **Book**: a book can have multiple reviews, can be ordered multiple times
+   - One-to-Many relationship with **OrderItem**.
+   - One-to-Many relationship with **Review**.
+
+4. **Order**: multiple orders can belong to one customer, multiple orders can be processed by the same employee, an order can contain multiple books
+   - Many-to-One relationship with **Customer**.
+   - Many-to-One relationship with **Employee**.
+   - One-to-Many relationship with **OrderItem**.
+
+5. **OrderItem**: multiple books(items in an order) can be found in a single order
+   - Many-to-One relationship with **Order**.
+
+6. **Review**: multiple reviews can belong to one customer, multiple reviews can be left on one book
+   - Many-to-One relationship with **Customer**.
+   - Many-to-One relationship with **Book**.
 
