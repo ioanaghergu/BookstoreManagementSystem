@@ -22,7 +22,7 @@ The MVP is focused on essential functionalities such as:
 2. Books management
     -[] Add, update, remove books from the bookstore's catalog
     -[] List all books
-    -[] Search books by title, author, genre or rating
+    -[] Search books by title, author or average rating
     -[] Manage inventory levels
 3. Employees management
     -[] Add, update, remove employees from the system
@@ -33,7 +33,8 @@ The MVP is focused on essential functionalities such as:
     -[] Compute total price per order and update status
 5. Reviews management
     -[] Add and delete review for a book
-    -[] List reviews by rating value
+    -[] List reviews for a certain book
+   
     
     
 
