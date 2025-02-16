@@ -14,7 +14,7 @@ The **Bookstore Management System** is a backend application designed to manage 
 4. Customers can place orders for one or more books, choose a pay and shipping method, apply coupons and discounts available to their order, and the total price for the order will be computed automatically.
 5. Orders can be placed, updated or canceled and their status will be updated automatically.
 6. Each order is assigned to an employee for processing.
-7. Clients can leave reviews for books they've purchased, including rating and optional comments.
+7. Customers can leave reviews for books, including rating and optional comments.
 8. Inventory levels are tracked and updated automatically when orders are placed or canceled.
 9. Customers can search and filter books by a variety of criteria.(e.g. title, author, rating)
 10. Customers can access their order history and see their previous orders, including total prices and ordering dates.
